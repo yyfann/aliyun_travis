@@ -4,19 +4,19 @@ node_js:
 branchs:
   only:
   - master
-# install:
-# - npm install
+install:
+- npm install
 script:
 - npm run build
-# addons:
-#   ssh_known_hosts:
-#   - 39.96.181.105 #受信主机，你的Linux服务器ip
-# before_install:
-# - openssl aes-256-cbc -K $encrypted_f952ec1043d3_key -i
-# v $encrypted_f952ec1043d3_iv
-#   -in id_rsa.enc -out ~\/.ssh/id_rsa -d
-# after_success:
-# - chmod 600 ~/.ssh/id_rsa
-# - ssh travis@39.96.181.105 -o StrictHostKeyChecking=no
-# 'cd ~/aliyun_travis  && git pull && npm install && npm
-# run build'
+addons:
+  ssh_known_hosts:
+  - 39.96.181.105 #受信主机，你的Linux服务器ip
+before_install:
+- openssl aes-256-cbc -K $encrypted_f952ec1043d3_key -i
+v $encrypted_f952ec1043d3_iv
+  -in id_rsa.enc -out ~\/.ssh/id_rsa -d
+after_success:
+- chmod 600 ~/.ssh/id_rsa
+- ssh travis@39.96.181.105 -o StrictHostKeyChecking=no
+'cd ~/aliyun_travis  && git pull && npm install && npm
+run build'
